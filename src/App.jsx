@@ -1,6 +1,6 @@
-import { use } from "react";
 import "./App.css";
 import AddForm from "./component/ui/AddForm";
+import Button from "./component/ui/Button";
 import FormLogin from "./component/ui/FormLogin";
 import { useState } from "react";
 function App() {
@@ -9,6 +9,7 @@ function App() {
       id: 1,
       nama: "Si Surga",
       simpok: 25000,
+      qty: 1,
       deskripsi:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut animi neque voluptatum accusamus nulla iste explicabo nostrum? Tenetur repellat adipisci, sed saepe voluptatum eveniet fuga dolorum necessitatibus quae esse sint!",
     },
@@ -21,7 +22,8 @@ function App() {
     const newSimpanan = {
       id: Date.now(),
       nama: data.namaSimpanan, // Ambil langsung dari parameter
-      simpok: data.simpok,     // Ambil langsung dari parameter
+      simpok: data.simpok, // Ambil langsung dari parameter
+      qty: 1,
       deskripsi: "Deskripsi belum diisi",
     };
 
@@ -39,9 +41,9 @@ function App() {
           return (
             <div key={item.id}>
               <div className="mt-3">
-                {item.nama}
+                {item.nama} {item.qty}
                 {" -Simpok: Rp."}
-                {item.simpok}
+                {item.simpok} <Button typeBtn="button"> order</Button>
               </div>
             </div>
           );
